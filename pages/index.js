@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-function Home() {
+function Home(props) {
+  console.log(props);
   React.useEffect(() => {
     getProduct();
   }, []);
@@ -14,4 +15,10 @@ function Home() {
   return <>home</>;
 }
 
+Home.getInitialProps = () => {
+  //fetch data on server
+  //return response data as an object
+  // this object will be merged
+  return { hello: 'world ' };
+};
 export default Home;
