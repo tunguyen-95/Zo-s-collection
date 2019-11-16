@@ -5,9 +5,10 @@ function Home() {
   React.useEffect(() => {
     getProduct();
   }, []);
-  function getProduct() {
+  async function getProduct() {
     const url = 'http://localhost:3000/api/products';
-    axios.get(url);
+    const response = await axios.get(url);
+    console.log(response.data);
   }
 
   return <>home</>;
