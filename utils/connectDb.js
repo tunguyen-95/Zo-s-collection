@@ -13,17 +13,15 @@ async function connectDb() {
     const db = await mongoose.connect(process.env.MONGO_SRV, {
       useCreateIndex: true,
       useFindAndModify: false,
-      useNewUrlParser: true
-      // ,
-      // useUnifiedTopology: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     });
-
-    console.log('DB Connected!');
     //this is the way of connecting a serverless app to mongo
     connection.isConnected = db.connections[0].readyState;
   } catch (error) {
     console.log(error);
   }
+  console.log('DB Connected!');
 }
 
 export default connectDb;
